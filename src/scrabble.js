@@ -2,12 +2,21 @@
 var Scrabble = function() {};
 
 Scrabble.prototype = {
+
+
   helloWorld: function() {return "Hello World!";},
 
   // score(word): returns the total score value for the given word. The word is input as a string (case insensitive). The chart below shows the point value for a given letter.
 
+
+
   score: function(word) {
     // insure input of word is clean. turning everythig into uppercase.
+// added this testing of word here. Ala Quai, live code. 
+    if(typeof(word) !== "string") {
+      throw new TypeError();
+    }
+
     word = word.toUpperCase();
 
     // create starting point, for score.
@@ -86,7 +95,7 @@ Scrabble.prototype = {
           max_scored_words.push(words[i]);
       }
 
-      console.log("max_scored_words:", max_scored_words, "for", max_score, "points");
+      // console.log("max_scored_words:", max_scored_words, "for", max_score, "points");
 
       var shortest_word = max_scored_words[0];
       var winner;
@@ -117,7 +126,7 @@ Scrabble.prototype = {
 
   // Test 2.
   /* highestScoreFrom(arrayOfWords): returns the word in the array with the highest score. */
-  // sizzles = 25, fuzz = 25, dog = 5, cat = 5. enchanted = 15
+  // sizzles = 25, dog = 5, cat = 5. enchanted = 15
   // create a collection of words.
   var collection = ["enchanted", "dog","sizzles", "cat"];
   // using new function name. I should return the highest scored word in array.
